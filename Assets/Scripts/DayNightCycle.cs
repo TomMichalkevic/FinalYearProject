@@ -9,10 +9,21 @@ public class DayNightCycle : MonoBehaviour {
 	public float currentTime = 0;
 	public float timeMultiplier = 1f;
 
+	[Header("Current color of the directional light in RGB")]
+	public float compR;
+	public float compG;
+	public float compB;
+	[Space(20)]
+
 	float sunInitialIntensity;
 
 	void Start() {
 		sunInitialIntensity = sun.intensity;
+		// Implement logic to change the intensity of the colour based on moral choices
+		//sun.color = Color.green;
+		compR = sun.color.r;
+		compG = sun.color.g;
+		compB = sun.color.b;
 	}
 
 	void Update() {
