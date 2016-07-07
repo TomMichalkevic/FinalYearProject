@@ -5,15 +5,20 @@ public class ForestCreator : MonoBehaviour {
 
 	public Terrain terrain;
 	//This is used for debugging
+
+	[Header("Testing Data")]
+	public int x;
+	public int y;
 	public Vector3 terrainSize;
-	public Vector2 test;
+	//public Vector2 test;
+	public float calculatedHeight;
 
 	// Use this for initialization
 	void Start () {
 		terrainSize = terrain.terrainData.size;
 		//I need to create the tree near 554, 56, 123;
 
-		test = Random.insideUnitCircle *5;
+		//test = Random.insideUnitCircle *5;
 
 		for (int j = 0; j < 7; j++) {
 			for (int i = 0; i < 14; i++) {
@@ -31,6 +36,6 @@ public class ForestCreator : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	
+		calculatedHeight = terrain.terrainData.GetHeight (x, y);
 	}
 }

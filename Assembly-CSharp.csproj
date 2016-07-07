@@ -48,6 +48,7 @@
      <Compile Include="Assets\Scripts\DayNightCycle.cs" />
      <Compile Include="Assets\Scripts\ForestCreator.cs" />
      <Compile Include="Assets\Scripts\GaugeHandler.cs" />
+     <Compile Include="Assets\Scripts\PointerHandler.cs" />
      <Compile Include="Assets\Scripts\TerrainGenerator.cs" />
      <Compile Include="Assets\Scripts\WallGenerator.cs" />
      <None Include="Assets\Standard Assets\Environment\Water\Water4\Shaders\FXWater4Simple.shader" />
