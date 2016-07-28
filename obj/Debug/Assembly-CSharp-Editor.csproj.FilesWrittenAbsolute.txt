@@ -19,6 +19,8 @@
 /Users/tomasmichalkevic/Documents/FinalYearProject/Temp/bin/Debug/UnityEditor.OSXStandalone.Extensions.dll
 /Users/tomasmichalkevic/Documents/FinalYearProject/Temp/bin/Debug/Assembly-CSharp-firstpass.dll
 /Users/tomasmichalkevic/Documents/FinalYearProject/Temp/bin/Debug/Assembly-CSharp-firstpass.dll.mdb
+/Users/tomasmichalkevic/Documents/FinalYearProject/Temp/bin/Debug/Assembly-CSharp.dll
+/Users/tomasmichalkevic/Documents/FinalYearProject/Temp/bin/Debug/Assembly-CSharp.dll.mdb
 /Users/tomasmichalkevic/Documents/FinalYearProject/Temp/bin/Debug/Mono.Cecil.dll
 /Users/tomasmichalkevic/Documents/FinalYearProject/Temp/bin/Debug/Unity.SerializationLogic.dll
 /Users/tomasmichalkevic/Documents/FinalYearProject/Temp/bin/Debug/Unity.DataContract.dll

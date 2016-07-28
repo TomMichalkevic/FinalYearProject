@@ -45,15 +45,20 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\ActivateObject.cs" />
+     <Compile Include="Assets\Scripts\BringDialogueToFront.cs" />
      <Compile Include="Assets\Scripts\DayNightCycle.cs" />
+     <Compile Include="Assets\Scripts\DeactivateObject.cs" />
+     <Compile Include="Assets\Scripts\DialogueBox.cs" />
      <Compile Include="Assets\Scripts\GameStateControl.cs" />
      <Compile Include="Assets\Scripts\GaugeHandler.cs" />
+     <Compile Include="Assets\Scripts\GnomeManager.cs" />
      <Compile Include="Assets\Scripts\HelperMethods.cs" />
      <Compile Include="Assets\Scripts\MenuHandler.cs" />
      <Compile Include="Assets\Scripts\PauseMenu.cs" />
+     <Compile Include="Assets\Scripts\Phrase.cs" />
      <Compile Include="Assets\Scripts\PointerHandler.cs" />
      <Compile Include="Assets\Scripts\WallGenerator.cs" />
-     <None Include="Assets\dialogues.xml" />
      <None Include="Assets\Standard Assets\Environment\Water\Water4\Shaders\FXWater4Simple.shader" />
      <None Include="Assets\Standard Assets\Environment\Water (Basic)\Shaders\FXWaterBasic.shader" />
      <None Include="Assets\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
