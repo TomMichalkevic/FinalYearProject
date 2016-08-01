@@ -31,10 +31,6 @@ public class GnomeManager : MonoBehaviour {
 	private string currentAnswer;
 	private string currentAltAnswer;
 
-	//UnityAction vars
-	//private UnityAction firstAnswer;
-	//private UnityAction alternativeAnswer;
-
 	//Other vars
 	public int currentVisible;
 	public Transform player;
@@ -74,7 +70,7 @@ public class GnomeManager : MonoBehaviour {
 		currentGnome = gnomeOne;
 		currentVisible = 1;
 		currentDialogueLoaded = new List<NPC>();
-		helper = GameObject.FindGameObjectWithTag ("DialogueCanvas").GetComponent<HelperMethods>();
+		helper = GameObject.FindGameObjectWithTag("Terrain").GetComponent<HelperMethods> ();
 		LoadGnomeDialogueFile ();
 		nextPhraseNum = 1;
 		currentPhraseNum = 1;
@@ -83,21 +79,19 @@ public class GnomeManager : MonoBehaviour {
 
 	void Awake(){
 		dialogueBox = DialogueBox.Instance ();
-		//firstAnswer = new UnityAction(ChooseFirstAnswer);
-		//alternativeAnswer = new UnityAction (ChooseAlternativeAnswer);
 	}
 
 	// Update is called once per frame
 	void Update () {
 		
 		if (Input.GetKeyDown (KeyCode.Q) && (Vector3.Distance(player.position, currentGnome.transform.position)<10.0f)) {
-			DialogueManager ();
-
+			InitiateDialogue ();
 			currentVisible++;
 
 		}
 		ChangeVisibility ();
 		changeGnome();
+		RotateGnomeToPlayer ();
 		if (dialogueBox.dialogueBoxObject.activeSelf==true) {
 			Time.timeScale = 0;
 			body.GetComponent<FirstPersonController> ().enabled = false;
@@ -120,14 +114,13 @@ public class GnomeManager : MonoBehaviour {
 		nextPhraseNum = nextPhraseNumFromAnsw;
 		currentPhraseNum = nextPhraseNum;
 		if (nextPhraseNum != 0) {
-			dialogueBox.answerB.GetComponentInChildren<Text> ().text = " ";
-			dialogueBox.alternativeAnswerB.GetComponentInChildren<Text> ().text = " ";
 			SetCurrentPhrasesAnswers ();
 			InitiateDialogue ();
 		} else {
 			dialogueBox.ClosePanel ();
 			currentPhraseNum = 1;
-
+			nextPhraseNum = 1;
+			SetCurrentPhrasesAnswers ();
 		}
 	}
 
@@ -135,13 +128,13 @@ public class GnomeManager : MonoBehaviour {
 		nextPhraseNum = nextPhraseNumFromAltA;
 		currentPhraseNum = nextPhraseNum;
 		if (nextPhraseNum != 0) {
-			dialogueBox.answerB.GetComponentInChildren<Text> ().text = " ";
-			dialogueBox.alternativeAnswerB.GetComponentInChildren<Text> ().text = " ";
-
 			SetCurrentPhrasesAnswers ();
 			InitiateDialogue ();
 		} else {
 			dialogueBox.ClosePanel ();
+			currentPhraseNum = 1;
+			nextPhraseNum = 1;
+			SetCurrentPhrasesAnswers ();
 		}
 	}
 
@@ -157,7 +150,7 @@ public class GnomeManager : MonoBehaviour {
 			gnomeSeven.SetActive (false);
 			break;
 		case 2:
-			gnomeOne.SetActive (false);
+			gnomeOne.SetActive (true);
 			gnomeTwo.SetActive (true);
 			gnomeThree.SetActive (false);
 			gnomeFour.SetActive (false);
@@ -166,8 +159,8 @@ public class GnomeManager : MonoBehaviour {
 			gnomeSeven.SetActive (false);
 			break;
 		case 3:
-			gnomeOne.SetActive (false);
-			gnomeTwo.SetActive (false);
+			gnomeOne.SetActive (true);
+			gnomeTwo.SetActive (true);
 			gnomeThree.SetActive (true);
 			gnomeFour.SetActive (false);
 			gnomeFive.SetActive (false);
@@ -184,30 +177,30 @@ public class GnomeManager : MonoBehaviour {
 			gnomeSeven.SetActive (false);
 			break;
 		case 5:
-			gnomeOne.SetActive (false);
-			gnomeTwo.SetActive (false);
-			gnomeThree.SetActive (false);
-			gnomeFour.SetActive (false);
+			gnomeOne.SetActive (true);
+			gnomeTwo.SetActive (true);
+			gnomeThree.SetActive (true);
+			gnomeFour.SetActive (true);
 			gnomeFive.SetActive (true);
 			gnomeSix.SetActive (false);
 			gnomeSeven.SetActive (false);
 			break;
 		case 6:
-			gnomeOne.SetActive (false);
-			gnomeTwo.SetActive (false);
-			gnomeThree.SetActive (false);
-			gnomeFour.SetActive (false);
-			gnomeFive.SetActive (false);
+			gnomeOne.SetActive (true);
+			gnomeTwo.SetActive (true);
+			gnomeThree.SetActive (true);
+			gnomeFour.SetActive (true);
+			gnomeFive.SetActive (true);
 			gnomeSix.SetActive (true);
 			gnomeSeven.SetActive (false);
 			break;
 		case 7:
-			gnomeOne.SetActive (false);
-			gnomeTwo.SetActive (false);
-			gnomeThree.SetActive (false);
-			gnomeFour.SetActive (false);
-			gnomeFive.SetActive (false);
-			gnomeSix.SetActive (false);
+			gnomeOne.SetActive (true);
+			gnomeTwo.SetActive (true);
+			gnomeThree.SetActive (true);
+			gnomeFour.SetActive (true);
+			gnomeFive.SetActive (true);
+			gnomeSix.SetActive (true);
 			gnomeSeven.SetActive (true);
 			break;
 		}
@@ -266,7 +259,6 @@ public class GnomeManager : MonoBehaviour {
 	}
 
 	void SetCurrentPhrasesAnswers(){
-		bool foundAlt = false;
 		foreach (var list in currentDialogueLoaded[0].phrases) {
 			if (list.id == currentPhraseNum) {
 				currentPhrase = list.phraseText;
@@ -277,25 +269,25 @@ public class GnomeManager : MonoBehaviour {
 		foreach (var answList in currentDialogueLoaded[0].answers) {
 			if (currentAnswNum == answList.id) {
 				currentAnswer = answList.answerText;
+
 				nextPhraseNumFromAnsw = answList.nextPhrase;
 			}
 			if (currentAltAnwNum == answList.id) {
 				currentAltAnswer = answList.answerText;
 				nextPhraseNumFromAltA = answList.nextPhrase;
-				foundAlt = true;
 			}
 		}
-		if (foundAlt == false) {
-			dialogueBox.alternativeAnswerB.GetComponent<DeactivateObject>().Init();
-		} else {
-			dialogueBox.alternativeAnswerB.GetComponent<ActivateObject>().Init();
-		}
-	}
-
-	void DialogueManager(){
-		//while (nextPhraseNum != 0) {
-			InitiateDialogue ();
-		//}
 
 	}
+
+	void RotateGnomeToPlayer(){
+		gnomeOne.transform.LookAt (player);
+		gnomeTwo.transform.LookAt (player);
+		gnomeThree.transform.LookAt (player);
+		gnomeFour.transform.LookAt (player);
+		gnomeFive.transform.LookAt (player);
+		gnomeSix.transform.LookAt (player);
+		gnomeSeven.transform.LookAt (player);
+	}
+
 }

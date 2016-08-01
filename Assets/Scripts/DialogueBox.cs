@@ -35,22 +35,29 @@ public class DialogueBox : MonoBehaviour {
 		//alternativeAnswerB.onClick.AddListener (ClosePanel);
 
 		this.question.text = question;
-		answerB.gameObject.SetActive (true);
-		alternativeAnswerB.gameObject.SetActive (true);
 
 	}
+
+
 
 	public void ClosePanel(){
 		dialogueBoxObject.SetActive (false);
 	}
 
-	// Use this for initialization
-	void Start () {
-	
+	public void DisableAnswButton(){
+		answerB.gameObject.SetActive (false);
 	}
-	
-	// Update is called once per frame
-	void Update () {
-	
+
+	public void DisableAltAnswButton(){
+		alternativeAnswerB.gameObject.SetActive (false);
 	}
+
+	public void EnableAnswButton(){
+		answerB.gameObject.SetActive (true);
+	}
+
+	public void EnableAltAnswButton(){
+		alternativeAnswerB.gameObject.SetActive (true);
+	}
+
 }
