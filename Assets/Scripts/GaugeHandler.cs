@@ -8,14 +8,35 @@ public class GaugeHandler : MonoBehaviour {
 
 	public Slider goodGauge;
 	public Slider badGauge;
+	public float multiplier;
+
+	public static GaugeHandler gaugeHandler;
 
 	// Use this for initialization
 	void Start () {
 		goodGauge.value = 1;
+		badGauge.value = 0;
+		multiplier = 0.1f;
 	}
 	
 	// Update is called once per frame
 	void Update () {
 	
+	}
+
+	public void AddToBad(int points){
+		badGauge.value = badGauge.value + points * multiplier;
+	}
+
+	public void AddToGood(int points){
+		goodGauge.value = goodGauge.value + points * multiplier;
+	}
+
+	public void DeductFromGood(int points){
+		goodGauge.value = goodGauge.value - points * multiplier;
+	}
+
+	public void DeductFromBad(int points){
+		badGauge.value = badGauge.value - points * multiplier;
 	}
 }

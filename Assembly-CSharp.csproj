@@ -55,6 +55,7 @@
      <Compile Include="Assets\Scripts\GnomeManager.cs" />
      <Compile Include="Assets\Scripts\HelperMethods.cs" />
      <Compile Include="Assets\Scripts\MenuHandler.cs" />
+     <Compile Include="Assets\Scripts\MoralHandler.cs" />
      <Compile Include="Assets\Scripts\PauseMenu.cs" />
      <Compile Include="Assets\Scripts\Phrase.cs" />
      <Compile Include="Assets\Scripts\PointerHandler.cs" />
