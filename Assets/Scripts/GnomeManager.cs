@@ -13,9 +13,9 @@ public class GnomeManager : MonoBehaviour {
 	public GameObject gnomeTwo;
 	public GameObject gnomeThree;
 	public GameObject gnomeFour;
-	public GameObject gnomeFive;
-	public GameObject gnomeSix;
-	public GameObject gnomeSeven;
+//	public GameObject gnomeFive;
+//	public GameObject gnomeSix;
+//	public GameObject gnomeSeven;
 
 	//Locations of gnomes
 	public Vector3 gnomeOneLoc;
@@ -45,6 +45,9 @@ public class GnomeManager : MonoBehaviour {
 	private int nextPhraseNum;
 	private int nextPhraseNumFromAnsw;
 	private int nextPhraseNumFromAltA;
+	private MoralHandler moralHandler;
+	private int altAnswPoints;
+	private int answerPoints;
 
 	// Use this for initialization
 	void Start () {
@@ -52,17 +55,17 @@ public class GnomeManager : MonoBehaviour {
 		gnomeTwoLoc = gnomeTwo.transform.position;
 		gnomeThreeLoc = gnomeThree.transform.position;
 		gnomeFourLoc = gnomeFour.transform.position;
-		gnomeFiveLoc = gnomeFive.transform.position;
-		gnomeSixLoc = gnomeSix.transform.position;
-		gnomeSevenLoc = gnomeSeven.transform.position;
+//		gnomeFiveLoc = gnomeFive.transform.position;
+//		gnomeSixLoc = gnomeSix.transform.position;
+//		gnomeSevenLoc = gnomeSeven.transform.position;
 
 		//Disable visibility of the gnomes
 		gnomeTwo.SetActive (false);
 		gnomeThree.SetActive (false);
 		gnomeFour.SetActive (false);
-		gnomeFive.SetActive (false);
-		gnomeSix.SetActive (false);
-		gnomeSeven.SetActive (false);
+//		gnomeFive.SetActive (false);
+//		gnomeSix.SetActive (false);
+//		gnomeSeven.SetActive (false);
 
 		//Initialisation of other vars
 		player = GameObject.FindGameObjectWithTag("Player").transform;
@@ -74,6 +77,7 @@ public class GnomeManager : MonoBehaviour {
 		LoadGnomeDialogueFile ();
 		nextPhraseNum = 1;
 		currentPhraseNum = 1;
+		moralHandler = GameObject.FindGameObjectWithTag ("Player").GetComponent<MoralHandler> ();
 		SetCurrentPhrasesAnswers ();
 	}
 
@@ -113,6 +117,8 @@ public class GnomeManager : MonoBehaviour {
 	void ChooseFirstAnswer(){
 		nextPhraseNum = nextPhraseNumFromAnsw;
 		currentPhraseNum = nextPhraseNum;
+		moralHandler.adjustGauges (answerPoints);
+		answerPoints = 0;
 		if (nextPhraseNum != 0) {
 			SetCurrentPhrasesAnswers ();
 			InitiateDialogue ();
@@ -127,6 +133,8 @@ public class GnomeManager : MonoBehaviour {
 	void ChooseAlternativeAnswer(){
 		nextPhraseNum = nextPhraseNumFromAltA;
 		currentPhraseNum = nextPhraseNum;
+		moralHandler.adjustGauges (altAnswPoints);
+		altAnswPoints = 0;
 		if (nextPhraseNum != 0) {
 			SetCurrentPhrasesAnswers ();
 			InitiateDialogue ();
@@ -145,64 +153,64 @@ public class GnomeManager : MonoBehaviour {
 			gnomeTwo.SetActive (false);
 			gnomeThree.SetActive (false);
 			gnomeFour.SetActive (false);
-			gnomeFive.SetActive (false);
-			gnomeSix.SetActive (false);
-			gnomeSeven.SetActive (false);
+//			gnomeFive.SetActive (false);
+//			gnomeSix.SetActive (false);
+//			gnomeSeven.SetActive (false);
 			break;
 		case 2:
 			gnomeOne.SetActive (true);
 			gnomeTwo.SetActive (true);
 			gnomeThree.SetActive (false);
 			gnomeFour.SetActive (false);
-			gnomeFive.SetActive (false);
-			gnomeSix.SetActive (false);
-			gnomeSeven.SetActive (false);
+//			gnomeFive.SetActive (false);
+//			gnomeSix.SetActive (false);
+//			gnomeSeven.SetActive (false);
 			break;
 		case 3:
 			gnomeOne.SetActive (true);
 			gnomeTwo.SetActive (true);
 			gnomeThree.SetActive (true);
 			gnomeFour.SetActive (false);
-			gnomeFive.SetActive (false);
-			gnomeSix.SetActive (false);
-			gnomeSeven.SetActive (false);
+//			gnomeFive.SetActive (false);
+//			gnomeSix.SetActive (false);
+//			gnomeSeven.SetActive (false);
 			break;
 		case 4:
 			gnomeOne.SetActive (false);
 			gnomeTwo.SetActive (false);
 			gnomeThree.SetActive (false);
 			gnomeFour.SetActive (true);
-			gnomeFive.SetActive (false);
-			gnomeSix.SetActive (false);
-			gnomeSeven.SetActive (false);
+//			gnomeFive.SetActive (false);
+//			gnomeSix.SetActive (false);
+//			gnomeSeven.SetActive (false);
 			break;
-		case 5:
-			gnomeOne.SetActive (true);
-			gnomeTwo.SetActive (true);
-			gnomeThree.SetActive (true);
-			gnomeFour.SetActive (true);
-			gnomeFive.SetActive (true);
-			gnomeSix.SetActive (false);
-			gnomeSeven.SetActive (false);
-			break;
-		case 6:
-			gnomeOne.SetActive (true);
-			gnomeTwo.SetActive (true);
-			gnomeThree.SetActive (true);
-			gnomeFour.SetActive (true);
-			gnomeFive.SetActive (true);
-			gnomeSix.SetActive (true);
-			gnomeSeven.SetActive (false);
-			break;
-		case 7:
-			gnomeOne.SetActive (true);
-			gnomeTwo.SetActive (true);
-			gnomeThree.SetActive (true);
-			gnomeFour.SetActive (true);
-			gnomeFive.SetActive (true);
-			gnomeSix.SetActive (true);
-			gnomeSeven.SetActive (true);
-			break;
+//		case 5:
+//			gnomeOne.SetActive (true);
+//			gnomeTwo.SetActive (true);
+//			gnomeThree.SetActive (true);
+//			gnomeFour.SetActive (true);
+//			gnomeFive.SetActive (true);
+//			gnomeSix.SetActive (false);
+//			gnomeSeven.SetActive (false);
+//			break;
+//		case 6:
+//			gnomeOne.SetActive (true);
+//			gnomeTwo.SetActive (true);
+//			gnomeThree.SetActive (true);
+//			gnomeFour.SetActive (true);
+//			gnomeFive.SetActive (true);
+//			gnomeSix.SetActive (true);
+//			gnomeSeven.SetActive (false);
+//			break;
+//		case 7:
+//			gnomeOne.SetActive (true);
+//			gnomeTwo.SetActive (true);
+//			gnomeThree.SetActive (true);
+//			gnomeFour.SetActive (true);
+//			gnomeFive.SetActive (true);
+//			gnomeSix.SetActive (true);
+//			gnomeSeven.SetActive (true);
+//			break;
 		}
 	}
 
@@ -220,15 +228,15 @@ public class GnomeManager : MonoBehaviour {
 		case 4:
 			currentGnome = gnomeFour;
 			break;
-		case 5:
-			currentGnome = gnomeFive;
-			break;
-		case 6:
-			currentGnome = gnomeSix;
-			break;
-		case 7:
-			currentGnome = gnomeSeven;
-			break;
+//		case 5:
+//			currentGnome = gnomeFive;
+//			break;
+//		case 6:
+//			currentGnome = gnomeSix;
+//			break;
+//		case 7:
+//			currentGnome = gnomeSeven;
+//			break;
 		}
 	}
 
@@ -246,15 +254,15 @@ public class GnomeManager : MonoBehaviour {
 		case 4:
 			currentDialogueLoaded = helper.ReadNPCDialogueInXML ("npc4.xml");
 			break;
-		case 5:
-			currentDialogueLoaded = helper.ReadNPCDialogueInXML ("npc5.xml");
-			break;
-		case 6:
-			currentDialogueLoaded = helper.ReadNPCDialogueInXML ("npc6.xml");
-			break;
-		case 7:
-			currentDialogueLoaded = helper.ReadNPCDialogueInXML ("npc7.xml");
-			break;
+//		case 5:
+//			currentDialogueLoaded = helper.ReadNPCDialogueInXML ("npc5.xml");
+//			break;
+//		case 6:
+//			currentDialogueLoaded = helper.ReadNPCDialogueInXML ("npc6.xml");
+//			break;
+//		case 7:
+//			currentDialogueLoaded = helper.ReadNPCDialogueInXML ("npc7.xml");
+//			break;
 		}
 	}
 
@@ -269,12 +277,13 @@ public class GnomeManager : MonoBehaviour {
 		foreach (var answList in currentDialogueLoaded[0].answers) {
 			if (currentAnswNum == answList.id) {
 				currentAnswer = answList.answerText;
-
 				nextPhraseNumFromAnsw = answList.nextPhrase;
+				answerPoints = answList.points;
 			}
 			if (currentAltAnwNum == answList.id) {
 				currentAltAnswer = answList.answerText;
 				nextPhraseNumFromAltA = answList.nextPhrase;
+				altAnswPoints = answList.points;
 			}
 		}
 
@@ -285,9 +294,9 @@ public class GnomeManager : MonoBehaviour {
 		gnomeTwo.transform.LookAt (player);
 		gnomeThree.transform.LookAt (player);
 		gnomeFour.transform.LookAt (player);
-		gnomeFive.transform.LookAt (player);
-		gnomeSix.transform.LookAt (player);
-		gnomeSeven.transform.LookAt (player);
+//		gnomeFive.transform.LookAt (player);
+//		gnomeSix.transform.LookAt (player);
+//		gnomeSeven.transform.LookAt (player);
 	}
 
 }

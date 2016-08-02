@@ -1,20 +1,21 @@
 <character>
-	<npc id="1">
+	<npc id="2">
 			<phrases>
-				<phrase id="1" answer="1" alternateanswer="2">Welcome, my friend. I believe you have travelled for a very long time. However, I must warn you of something. Your actions change what you see and how the environment responds to you.</phrase>
-				<phrase id="2" answer="4" alternateanswer="0">Well… This land once has been inhabited by a wizard. He believed that people should be held responsible for what they do, that the way they see the world should also change with their actions. So if they do something good, then the world they see, should be good. However, if they do the opposite, what they see, should not be pleasant.</phrase>
-				<phrase id="3" answer="3" alternateanswer="0">Please do not be rude. I am trying to help.</phrase>
-				<phrase id="4" answer="4" alternateanswer="0">Apology accepted.</phrase>
-				<phrase id="5" answer="5" alternateanswer="0">You need to speak to 7 of my brothers. They will help you on this quest. They might give you some pointers on how to go about this. Some of them might give you a task to do in exchange for knowledge.</phrase>
-				<phrase id="6" answer="6" alternateanswer="0">You see the pointer up there? It will show you where to go.</phrase>
+				<phrase id="1" answer="1" alternateanswer="2">Hi there. So it seems that you've met my brother. Good fella, isn't he?</phrase>
+				<phrase id="2" answer="3" alternateanswer="4">Haha we do, yessir! We are all identical in terms of looks. You are probably aware that there are 4 of us.</phrase>
+				<phrase id="3" answer="3" alternateanswer="4">Oh no, we didn't. You met my brother. We all look exactly the same. Sorry for the confusion caused, my friend.</phrase>
+				<phrase id="4" answer="9" alternateanswer="6">Of course. So you know the main bit. This land was changed by a wizard and this land changes based on your moral choices. The thing you're probably not aware is that we are guardians of this land. So you need to speak to all of us before you can leave.</phrase>
+				<phrase id="5" answer="7" alternateanswer="8">Just follow the pointer, it will lead you there. And, my friend, please be careful with what you say. Good luck!</phrase>
 			</phrases>
 			<player-answers>
-				<answer id="1" nextp="2" points="0">What do you mean?</answer>
-				<answer id="2" nextp="3" points="-1">Are you mad? Do you think I should believe in this nonsense?</answer>
-				<answer id="3" nextp="4" points="0">I’m sorry, I did not intend to offend you.</answer>
-				<answer id="4" nextp="5" points="0">How do I leave this land?</answer>
-				<answer id="5" nextp="6" points="0">That’s fine, where should I go?</answer>
-				<answer id="6" nextp="0" points="0">Thanks</answer>
+				<answer id="1" nextp="2" points="0">Hi. Well yes... But you guys look the same?</answer>
+				<answer id="2" nextp="3" points="0">Hey. Haven't we met before?</answer>
+				<answer id="3" nextp="4" points="1">No worries. I was told that you can help me leave this land.</answer>
+				<answer id="4" nextp="4" points="-1">Sure, I'll play along...</answer>
+				<answer id="6" nextp="5" points="-1">Look. I'm getting sick of this. We have talked before and you are trying to play some mind games with me here. Where's your next "brother" and I'll be on my way.</answer>
+				<answer id="7" nextp="0" points="-1">What's wrong with you people...</answer>
+				<answer id="8" nextp="0" points="1">You have been very helpful, sir. Thanks!</answer>
+				<answer id="9" nextp="5" points="0">Where should I go?</answer>
 			</player-answers>
 	</npc>
 </character>

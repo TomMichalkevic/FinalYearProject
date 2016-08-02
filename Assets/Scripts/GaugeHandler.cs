@@ -25,18 +25,27 @@ public class GaugeHandler : MonoBehaviour {
 	}
 
 	public void AddToBad(int points){
-		badGauge.value = badGauge.value + points * multiplier;
+		badGauge.value = (float)(badGauge.value + points * multiplier);
+		//Debug.Log ("Was here");
 	}
 
 	public void AddToGood(int points){
-		goodGauge.value = goodGauge.value + points * multiplier;
+		goodGauge.value = (float)(goodGauge.value + points * multiplier);
 	}
 
 	public void DeductFromGood(int points){
-		goodGauge.value = goodGauge.value - points * multiplier;
+		goodGauge.value = (float)(goodGauge.value - points * multiplier);
 	}
 
 	public void DeductFromBad(int points){
-		badGauge.value = badGauge.value - points * multiplier;
+		badGauge.value = (float)(badGauge.value - points * multiplier);
+	}
+
+	public void SetBadGauge(int value){
+		badGauge.value = value;
+	}
+
+	public void SetGoodGauge(int value){
+		goodGauge.value = value;
 	}
 }

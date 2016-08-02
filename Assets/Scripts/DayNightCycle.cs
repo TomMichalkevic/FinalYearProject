@@ -52,4 +52,21 @@ public class DayNightCycle : MonoBehaviour {
 
 		sun.intensity = sunInitialIntensity * intensityMultiplier;
 	}
+
+	public void ChangeSunColor(int option){
+		switch (option) {
+		case 1:
+			sun.color = Color.yellow;
+			break;
+		case 2:
+			sun.color = Color.green;
+			break;
+		case 3:
+			sun.color = Color.gray;
+			break;
+		case 4:
+			sun.color = Color.black;
+			break;
+		}
+	}
 }

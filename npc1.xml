@@ -5,7 +5,7 @@
 				<phrase id="2" answer="4" alternateanswer="8">Well… This land once has been inhabited by a wizard. He believed that people should be held responsible for what they do, that the way they see the world should also change with their actions. So if they do something good, then the world they see, should be good. However, if they do the opposite, what they see, should not be pleasant.</phrase>
 				<phrase id="3" answer="3" alternateanswer="9">Please do not be rude. I am trying to help.</phrase>
 				<phrase id="4" answer="4" alternateanswer="9">Apology accepted.</phrase>
-				<phrase id="5" answer="5" alternateanswer="10">You need to speak to 7 of my brothers. They will help you on this quest. They might give you some pointers on how to go about this. Some of them might give you a task to do in exchange for knowledge.</phrase>
+				<phrase id="5" answer="5" alternateanswer="10">You need to speak to 3 of my brothers. They will help you on this quest. They might give you some pointers on how to go about this. Some of them might give you a task to do in exchange for knowledge.</phrase>
 				<phrase id="6" answer="6" alternateanswer="7">You see the pointer up there? It will show you where to go.</phrase>
 			</phrases>
 			<player-answers>
