@@ -5,20 +5,22 @@ public class MoralHandler : MonoBehaviour {
 
 	private GaugeHandler gaugeHandler;
 	public int p;
-	public WindZone weatherComponent;
-	public DayNightCycle sunScript;
+	private WindZone weatherComponent;
+	private DayNightCycle sunScript;
+	public GameObject snow;
 
 	// Use this for initialization
 	void Start () {
 		gaugeHandler = GameObject.FindGameObjectWithTag ("Player").GetComponent<GaugeHandler> ();
 		weatherComponent = GameObject.FindGameObjectWithTag ("Terrain").GetComponent<WindZone> ();
 		sunScript = GameObject.FindGameObjectWithTag ("Sun").GetComponent<DayNightCycle> ();
+		//snow = GameObject.FindGameObjectWithTag ("Snow");
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		//adjustWeather ();
-		//adjustLighting ();
+		adjustWeather ();
+		adjustLighting ();
 	}
 
 	public void adjustGauges(int points){
@@ -37,9 +39,9 @@ public class MoralHandler : MonoBehaviour {
 
 	public void adjustWeather(){
 		if (gaugeHandler.badGauge.value > 0.5) {
-			weatherComponent.gameObject.SetActive (true);
+			weatherComponent.windMain = 1;
 		} else {
-			weatherComponent.gameObject.SetActive (false);
+			weatherComponent.windMain = 0;
 		}
 		if (gaugeHandler.badGauge.value > 0.7 && gaugeHandler.badGauge.value < 0.9) {
 			weatherComponent.windTurbulence = 5;
@@ -47,6 +49,11 @@ public class MoralHandler : MonoBehaviour {
 			weatherComponent.windTurbulence = 10;
 		} else {
 			weatherComponent.windTurbulence = 1;
+		}
+		if (gaugeHandler.badGauge.value > 0.5) {
+			snow.SetActive (true);
+		} else {
+			snow.SetActive (false);
 		}
 	}
 
@@ -58,7 +65,7 @@ public class MoralHandler : MonoBehaviour {
 		} else if (gaugeHandler.badGauge.value > 0.6 && gaugeHandler.badGauge.value<0.8) {
 			sunScript.ChangeSunColor (3);
 		} else {
-			//sunScript.ChangeSunColor (4);
+			sunScript.ChangeSunColor (4);
 		}
 	}
 

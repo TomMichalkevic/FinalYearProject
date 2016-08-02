@@ -2,16 +2,16 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/GnomeManager.cs">
     <Files>
-      <File FileName="Assets/Scripts/GaugeHandler.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/MoralHandler.cs" Line="29" Column="31" />
+      <File FileName="Assets/Scripts/MoralHandler.cs" Line="8" Column="9" />
+      <File FileName="Assets/Scripts/GaugeHandler.cs" Line="19" Column="20" />
       <File FileName="Assets/Scripts/GnomeManager.cs" Line="299" Column="42" />
       <File FileName="Assets/Scripts/BringDialogueToFront.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/PauseMenu.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/DeactivateObject.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/ActivateObject.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/WallGenerator.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/HelperMethods.cs" Line="40" Column="1" />
-      <File FileName="Assets/Scripts/DayNightCycle.cs" Line="68" Column="28" />
+      <File FileName="Assets/Scripts/HelperMethods.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/DayNightCycle.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
