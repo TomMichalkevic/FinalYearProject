@@ -16,7 +16,7 @@ public class GaugeHandler : MonoBehaviour {
 	void Start () {
 		goodGauge.value = 1;
 		badGauge.value = 0;
-		multiplier = 0.15f;
+		multiplier = 0.5f;
 	}
 	
 	// Update is called once per frame

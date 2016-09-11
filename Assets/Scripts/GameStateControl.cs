@@ -10,9 +10,11 @@ public class GameStateControl : MonoBehaviour{
 
 	public static GameStateControl stateControl;
 
-	public float health;
 	public float badGauge;
 	public float goodGauge;
+	public GameObject currentGnome;
+	public int currentGnomeNumber;
+	public Vector3 playerPosition;
 
 	void Awake(){
 		if (stateControl == null) {
@@ -27,12 +29,12 @@ public class GameStateControl : MonoBehaviour{
 		BinaryFormatter formatter = new BinaryFormatter ();
 		FileStream file = File.Create (Application.persistentDataPath + "/finalYearProject.dat");
 		GameStateData data = new GameStateData ();
-		data.health = health;
 		data.badGauge = badGauge;
 		data.goodGauge = goodGauge;
 
 		formatter.Serialize (file, data);
 		file.Close();
+		Debug.Log ("Data saved");
 	}
 
 	public void Load(){
@@ -42,16 +44,21 @@ public class GameStateControl : MonoBehaviour{
 			GameStateData data = (GameStateData)formatter.Deserialize (file);
 			file.Close ();
 
-			health = data.health;
 			goodGauge = data.goodGauge;
 			badGauge = data.badGauge;
+			currentGnome = data.currentGnome;
+			currentGnomeNumber = data.currentGnomeNumber;
+			playerPosition = data.playerPosition;
+			Debug.Log ("Data Loaded");
 		}
 	}
 }
 
 [Serializable]
 class GameStateData{
-	public float health;
 	public float badGauge;
 	public float goodGauge;
+	public GameObject currentGnome;
+	public int currentGnomeNumber;
+	public Vector3 playerPosition;
 }

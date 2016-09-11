@@ -2,16 +2,28 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/GnomeManager.cs">
     <Files>
-      <File FileName="Assets/Scripts/MoralHandler.cs" Line="8" Column="9" />
-      <File FileName="Assets/Scripts/GaugeHandler.cs" Line="19" Column="20" />
-      <File FileName="Assets/Scripts/GnomeManager.cs" Line="299" Column="42" />
-      <File FileName="Assets/Scripts/BringDialogueToFront.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/PauseMenu.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/DeactivateObject.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/GnomeManager.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/ActivateObject.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/WallGenerator.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/HelperMethods.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/BringDialogueToFront.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/DayNightCycle.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/DayNightCycleBasic.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/DeactivateObject.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/DialogueBox.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/GameStateControl.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/GaugeHandler.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/HelperMethods.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/MenuHandler.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/MoralHandler.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/PauseMenu.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Phrase.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/PointerHandler.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/WallGenerator.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Editor/ForestCreator.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Editor/TerrainGenerator.cs" Line="1" Column="1" />
+      <File FileName="Assets/Standard Assets/Characters/FirstPersonCharacter/Scripts/FirstPersonController.cs" Line="1" Column="1" />
+      <File FileName="Assets/Standard Assets/Characters/FirstPersonCharacter/Scripts/HeadBob.cs" Line="1" Column="1" />
+      <File FileName="Assets/Standard Assets/Characters/FirstPersonCharacter/Scripts/MouseLook.cs" Line="1" Column="1" />
+      <File FileName="Assets/Standard Assets/Characters/FirstPersonCharacter/Scripts/RigidbodyFirstPersonController.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

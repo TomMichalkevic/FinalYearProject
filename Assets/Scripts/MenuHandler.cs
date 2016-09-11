@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class MenuHandler : MonoBehaviour {
 
@@ -30,7 +31,8 @@ public class MenuHandler : MonoBehaviour {
 	}
 
 	public void LoadLevelOne(){
-		Application.LoadLevel (1);
+		SceneManager.LoadScene (1, LoadSceneMode.Single);
+		//Application.LoadLevel(1);
 	}
 
 	public void QuitGame(){

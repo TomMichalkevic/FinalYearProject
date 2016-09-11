@@ -1,0 +1,28 @@
+﻿<Properties StartupItem="Assembly-CSharp.csproj">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/GaugeHandler.cs">
+    <Files>
+      <File FileName="Assets/Scripts/MoralHandler.cs" Line="1" Column="1" NotebookId="1" />
+      <File FileName="Assets/Scripts/GnomeManager.cs" Line="1" Column="1" NotebookId="1" />
+      <File FileName="Assets/Scripts/BringDialogueToFront.cs" Line="1" Column="1" NotebookId="1" />
+      <File FileName="Assets/Scripts/DeactivateObject.cs" Line="1" Column="1" NotebookId="1" />
+      <File FileName="Assets/Scripts/ActivateObject.cs" Line="1" Column="1" NotebookId="1" />
+      <File FileName="Assets/Scripts/WallGenerator.cs" Line="1" Column="1" NotebookId="1" />
+      <File FileName="Assets/Scripts/HelperMethods.cs" Line="1" Column="1" NotebookId="1" />
+      <File FileName="Assets/Scripts/DayNightCycle.cs" Line="1" Column="1" NotebookId="1" />
+    </Files>
+    <FloatingWindows>
+      <FloatingWindow WindowId="1" X="534" Y="23" Width="832" Height="662">
+        <Files>
+          <File FileName="Assets/Scripts/GaugeHandler.cs" Line="17" Column="23" />
+          <File FileName="Assets/Scripts/PauseMenu.cs" Line="1" Column="1" />
+          <File FileName="Assets/Scripts/MenuHandler.cs" Line="34" Column="50" />
+        </Files>
+      </FloatingWindow>
+    </FloatingWindows>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>

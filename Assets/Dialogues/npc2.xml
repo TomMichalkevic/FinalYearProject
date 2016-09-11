@@ -1,0 +1,21 @@
+<character>
+	<npc id="2">
+			<phrases>
+				<phrase id="1" answer="1" alternateanswer="2">Hi there. So it seems that you've met my brother. Good fella, isn't he?</phrase>
+				<phrase id="2" answer="3" alternateanswer="4">Haha we do, yessir! We are all identical in terms of looks. You are probably aware that there are 4 of us.</phrase>
+				<phrase id="3" answer="3" alternateanswer="4">Oh no, we didn't. You met my brother. We all look exactly the same. Sorry for the confusion caused, my friend.</phrase>
+				<phrase id="4" answer="9" alternateanswer="6">Of course. So you know the main bit. This land was changed by a wizard and this land changes based on your moral choices. The thing you're probably not aware is that we are guardians of this land. So you need to speak to all of us before you can leave.</phrase>
+				<phrase id="5" answer="7" alternateanswer="8">Just follow the pointer, it will lead you there. And, my friend, please be careful with what you say. Good luck!</phrase>
+			</phrases>
+			<player-answers>
+				<answer id="1" nextp="2" points="0">Hi. Well yes... But you guys look the same?</answer>
+				<answer id="2" nextp="3" points="0">Hey. Haven't we met before?</answer>
+				<answer id="3" nextp="4" points="1">No worries. I was told that you can help me leave this land.</answer>
+				<answer id="4" nextp="4" points="-1">Sure, I'll play along...</answer>
+				<answer id="6" nextp="5" points="-1">Look. I'm getting sick of this. We have talked before and you are trying to play some mind games with me here. Where's your next "brother" and I'll be on my way.</answer>
+				<answer id="7" nextp="0" points="-1">What's wrong with you people...</answer>
+				<answer id="8" nextp="0" points="1">You have been very helpful, sir. Thanks!</answer>
+				<answer id="9" nextp="5" points="0">Where should I go?</answer>
+			</player-answers>
+	</npc>
+</character>
