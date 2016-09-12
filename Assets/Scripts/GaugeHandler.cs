@@ -2,7 +2,7 @@
 using System.Collections;
 using UnityEngine.UI;
 
-//http://www.thegamecontriver.com/2014/08/unity-46-create-health-bar-hud.html
+//http://www.thegamecontriver.com/2014/08/unity-46-create-health-bar-hud.html is the tutorial used in this class
 
 public class GaugeHandler : MonoBehaviour {
 
@@ -24,28 +24,34 @@ public class GaugeHandler : MonoBehaviour {
 	
 	}
 
+	// Add to the bad gauge
 	public void AddToBad(int points){
 		badGauge.value = (float)(badGauge.value + points * multiplier);
 		//Debug.Log ("Was here");
 	}
 
+	// Add to the good gauge
 	public void AddToGood(int points){
 		goodGauge.value = (float)(goodGauge.value + points * multiplier);
 	}
 
+	// Deduct from the good gauge
 	public void DeductFromGood(int points){
 		goodGauge.value = (float)(goodGauge.value - points * multiplier);
 	}
 
+	// Deduct from the bad gauge
 	public void DeductFromBad(int points){
 		badGauge.value = (float)(badGauge.value - points * multiplier);
 	}
 
-	public void SetBadGauge(int value){
+	// Set the bad gauge
+	public void SetBadGauge(float value){
 		badGauge.value = value;
 	}
 
-	public void SetGoodGauge(int value){
+	// Set the good gauge
+	public void SetGoodGauge(float value){
 		goodGauge.value = value;
 	}
 }

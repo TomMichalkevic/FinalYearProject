@@ -21,6 +21,7 @@ public class DayNightCycleBasic : MonoBehaviour {
 		sunInitialIntensity = sun.intensity;
 	}
 
+	// Update the timing
 	void Update() {
 		UpdateSun();
 
@@ -31,6 +32,7 @@ public class DayNightCycleBasic : MonoBehaviour {
 		}
 	}
 
+	// Update the sun's position
 	void UpdateSun() {
 		sun.transform.localRotation = Quaternion.Euler((currentTime * 360f) - 90, 170, 0);
 

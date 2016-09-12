@@ -7,7 +7,7 @@ using System;
 
 public class HelperMethods : MonoBehaviour {
 
-
+	// Convert coordinates
 	public Vector3 convertFromLocalToWorld(float x, float y, float z, Terrain terrain){
 		Vector3 worldCoord = new Vector3 (0, 0, 0);
 		worldCoord = terrain.transform.TransformPoint (x, y, z);
@@ -15,6 +15,7 @@ public class HelperMethods : MonoBehaviour {
 
 	}
 
+	// Parse the xml file with a dialog for the gnome
 	public List<NPC> ReadNPCDialogueInXML(string fileToLoad){
 		List<NPC> dialogue = new List<NPC>();
 		dialogue = (
@@ -45,6 +46,7 @@ public class HelperMethods : MonoBehaviour {
 		return dialogue;
 	}
 
+	// Output values for debugging
 	public void OutputListValues (List<NPC> list){
 		foreach (var item in list) {
 			print(item.id);
@@ -64,29 +66,6 @@ public class HelperMethods : MonoBehaviour {
 	}
 
 	void Start(){
-//		print ("test");
-//
-//		List<NPC> list = ReadNPCDialogueInXML ();
-//
-//		//print(list.Capacity);
-//
-//		foreach (var item in list) {
-//			print(item.id);
-//			foreach (var ph in item.phrases) {
-//				print(ph.id);
-//				print(ph.followingAnswer);
-//				print(ph.followingAnswerAlt);
-//				print(ph.phraseText);
-//			}
-//			foreach (var a in item.answers) {
-//				print(a.id);
-//				print(a.nextPhrase);
-//				print(a.answerText);
-//				print(a.points);
-//			}
-//		}
-//
-//		print("test 2");
-//		print(list.Count);
+
 	}
 }

@@ -2,18 +2,19 @@
 using System.Collections;
 using UnityStandardAssets.Characters.FirstPerson;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class PauseMenu : MonoBehaviour {
 
 	public Canvas pauseMenu;
 	public GameObject body;
+	public Slider goodGaugeSl;
+	public Slider badGaugeSl;
 
 	//Private vars used for game saving/loading
 	private float badGauge;
 	private float goodGauge;
-	private GameObject currentGnome;
 	private int currentGnomeNumber;
-	private Vector3 playerPosition;
 	private GameStateControl stateControl;
 
 	// Use this for initialization
@@ -21,6 +22,8 @@ public class PauseMenu : MonoBehaviour {
 		pauseMenu = pauseMenu.GetComponent<Canvas> ();
 		body = GameObject.FindWithTag ("Player");
 		pauseMenu.enabled = false;
+		stateControl = new GameStateControl ();
+		Debug.Log (Application.persistentDataPath);
 	}
 	
 	// Update is called once per frame
@@ -40,25 +43,25 @@ public class PauseMenu : MonoBehaviour {
 		}
 	}
 
+	// Initiate the save game mechanism
 	public void SaveGame(){
 		badGauge = GameObject.FindGameObjectWithTag ("Player").GetComponent<GaugeHandler> ().badGauge.value;
 		goodGauge = GameObject.FindGameObjectWithTag ("Player").GetComponent<GaugeHandler> ().goodGauge.value;
-		currentGnome = GameObject.FindGameObjectWithTag ("Terrain").GetComponent<GnomeManager> ().currentGnome;
 		currentGnomeNumber = GameObject.FindGameObjectWithTag ("Terrain").GetComponent<GnomeManager> ().currentVisible;
-		playerPosition = GameObject.FindGameObjectWithTag ("Player").transform.position;
 		stateControl.badGauge = badGauge;
 		stateControl.goodGauge = goodGauge;
-		stateControl.currentGnome = currentGnome;
 		stateControl.currentGnomeNumber = currentGnomeNumber;
-		stateControl.playerPosition = playerPosition;
 		stateControl.Save ();
 	}
 
+	// Initiate the load game mechanism
 	public void LoadGame (){
-		SceneManager.LoadScene (1);
 		stateControl.Load ();
+		goodGaugeSl.value = stateControl.goodGauge;
+		badGaugeSl.value = stateControl.badGauge;
 	}
 
+	// Exit game
 	public void ExitToMenu(){
 		Application.Quit ();
 	}

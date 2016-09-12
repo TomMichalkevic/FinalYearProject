@@ -97,21 +97,25 @@ public class MoralHandler : MonoBehaviour {
 		}
 	}
 
+	// Change to music nr.1
 	void ChangeToLevel1(){
 		terrainAudio.clip = level1;
 		terrainAudio.Play ();
 	}
 
+	// Change to music nr.2
 	void ChangeToLevel2(){
 		terrainAudio.clip = level2;
 		terrainAudio.Play ();
 	}
 
+	// Change to music nr.3
 	void ChangeToLevel3(){
 		terrainAudio.clip = level3;
 		terrainAudio.Play ();
 	}
 
+	// Change to music nr.4
 	void ChangeToLevel4(){
 		terrainAudio.clip = level4;
 		terrainAudio.Play ();

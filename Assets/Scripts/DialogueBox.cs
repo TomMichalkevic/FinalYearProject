@@ -23,6 +23,7 @@ public class DialogueBox : MonoBehaviour {
 		return dialogueMan;
 	}
 
+	// Initiate a dialogue box
 	public void Choice(string question, UnityAction answer, UnityAction alternativeQuestion){
 		dialogueBoxObject.SetActive (true);
 
@@ -39,23 +40,28 @@ public class DialogueBox : MonoBehaviour {
 	}
 
 
-
+	// Close the panel of the dialogue
 	public void ClosePanel(){
 		dialogueBoxObject.SetActive (false);
 	}
 
+	// Disable first answer
 	public void DisableAnswButton(){
 		answerB.gameObject.SetActive (false);
 	}
 
+	// Disable second answer
 	public void DisableAltAnswButton(){
 		alternativeAnswerB.gameObject.SetActive (false);
 	}
 
+	// Enable first answer
 	public void EnableAnswButton(){
 		answerB.gameObject.SetActive (true);
 	}
 
+
+	// Disable second answer
 	public void EnableAltAnswButton(){
 		alternativeAnswerB.gameObject.SetActive (true);
 	}

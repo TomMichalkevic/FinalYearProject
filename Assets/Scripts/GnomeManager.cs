@@ -106,12 +106,14 @@ public class GnomeManager : MonoBehaviour {
 
 	}
 
+	// Initiate a dialogue with the gnome
 	public void InitiateDialogue(){
 		dialogueBox.answerB.GetComponentInChildren<Text> ().text = currentAnswer;
 		dialogueBox.alternativeAnswerB.GetComponentInChildren<Text> ().text = currentAltAnswer;
 		dialogueBox.Choice (currentPhrase, ChooseFirstAnswer, ChooseAlternativeAnswer);
 	}
 
+	// Choose a first answer
 	void ChooseFirstAnswer(){
 		nextPhraseNum = nextPhraseNumFromAnsw;
 		currentPhraseNum = nextPhraseNum;
@@ -129,6 +131,7 @@ public class GnomeManager : MonoBehaviour {
 		}
 	}
 
+	// Choose a second answer
 	void ChooseAlternativeAnswer(){
 		nextPhraseNum = nextPhraseNumFromAltA;
 		currentPhraseNum = nextPhraseNum;
@@ -146,6 +149,7 @@ public class GnomeManager : MonoBehaviour {
 		}
 	}
 
+	// Change the visibility of the gnomes
 	void ChangeVisibility(){
 		switch (currentVisible) {
 		case 1:
@@ -175,6 +179,7 @@ public class GnomeManager : MonoBehaviour {
 		}
 	}
 
+	// Change the current active gnome
 	void changeGnome(){
 		switch(currentVisible){
 		case 1:
@@ -192,6 +197,7 @@ public class GnomeManager : MonoBehaviour {
 		}
 	}
 
+	// Load the gnome dialogue file
 	void LoadGnomeDialogueFile(){
 		switch(currentVisible){
 		case 1:
@@ -209,6 +215,7 @@ public class GnomeManager : MonoBehaviour {
 		}
 	}
 
+	// Set currently relevant phrases and answers
 	void SetCurrentPhrasesAnswers(){
 		foreach (var list in currentDialogueLoaded[0].phrases) {
 			if (list.id == currentPhraseNum) {
@@ -232,6 +239,7 @@ public class GnomeManager : MonoBehaviour {
 
 	}
 
+	// Rotate the gnome to the player
 	void RotateGnomeToPlayer(){
 		gnomeOne.transform.LookAt (player);
 		gnomeTwo.transform.LookAt (player);

@@ -19,13 +19,12 @@ public class DayNightCycle : MonoBehaviour {
 
 	void Start() {
 		sunInitialIntensity = sun.intensity;
-		// Implement logic to change the intensity of the colour based on moral choices
-		//sun.color = Color.green;
 		compR = sun.color.r;
 		compG = sun.color.g;
 		compB = sun.color.b;
 	}
 
+	// Update the timing
 	void Update() {
 		UpdateSun();
 
@@ -36,6 +35,7 @@ public class DayNightCycle : MonoBehaviour {
 		}
 	}
 
+	// Update the sun's position
 	void UpdateSun() {
 		sun.transform.localRotation = Quaternion.Euler((currentTime * 360f) - 90, 170, 0);
 
@@ -53,6 +53,7 @@ public class DayNightCycle : MonoBehaviour {
 		sun.intensity = sunInitialIntensity * intensityMultiplier;
 	}
 
+	// Change the colour of the sun
 	public void ChangeSunColor(int option){
 		switch (option) {
 		case 1:

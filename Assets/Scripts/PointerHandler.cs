@@ -23,6 +23,7 @@ public class PointerHandler : MonoBehaviour {
 		currentGnome = gnomeManager.currentGnome;
 	}
 
+	// Update the rotation of the pointer
 	void UpdatePointer(){
 		pointer.transform.LookAt (currentGnome.transform);
 	}

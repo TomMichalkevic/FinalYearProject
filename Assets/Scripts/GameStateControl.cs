@@ -4,7 +4,7 @@ using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
 using System.Collections;
 
-//https://unity3d.com/learn/tutorials/topics/scripting/persistence-saving-and-loading-data
+//https://unity3d.com/learn/tutorials/topics/scripting/persistence-saving-and-loading-data was the tutorial used in this class
 
 public class GameStateControl : MonoBehaviour{
 
@@ -12,9 +12,7 @@ public class GameStateControl : MonoBehaviour{
 
 	public float badGauge;
 	public float goodGauge;
-	public GameObject currentGnome;
 	public int currentGnomeNumber;
-	public Vector3 playerPosition;
 
 	void Awake(){
 		if (stateControl == null) {
@@ -25,18 +23,21 @@ public class GameStateControl : MonoBehaviour{
 		}
 	}
 
+	// Saving mechanism
 	public void Save(){
 		BinaryFormatter formatter = new BinaryFormatter ();
 		FileStream file = File.Create (Application.persistentDataPath + "/finalYearProject.dat");
 		GameStateData data = new GameStateData ();
 		data.badGauge = badGauge;
 		data.goodGauge = goodGauge;
+		data.currentGnomeNumber = currentGnomeNumber;
 
 		formatter.Serialize (file, data);
 		file.Close();
 		Debug.Log ("Data saved");
 	}
 
+	// Loading mechanism
 	public void Load(){
 		if(File.Exists(Application.persistentDataPath + "/finalYearProject.dat")){
 			BinaryFormatter formatter = new BinaryFormatter ();
@@ -46,9 +47,8 @@ public class GameStateControl : MonoBehaviour{
 
 			goodGauge = data.goodGauge;
 			badGauge = data.badGauge;
-			currentGnome = data.currentGnome;
 			currentGnomeNumber = data.currentGnomeNumber;
-			playerPosition = data.playerPosition;
+
 			Debug.Log ("Data Loaded");
 		}
 	}
@@ -58,7 +58,5 @@ public class GameStateControl : MonoBehaviour{
 class GameStateData{
 	public float badGauge;
 	public float goodGauge;
-	public GameObject currentGnome;
 	public int currentGnomeNumber;
-	public Vector3 playerPosition;
 }

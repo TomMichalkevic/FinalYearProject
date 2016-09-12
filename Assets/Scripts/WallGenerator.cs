@@ -61,15 +61,18 @@ public class WallGenerator : MonoBehaviour {
 
 	}
 
+	// Set the start of the wall
 	void setStart(){
 		start.transform.position = startPos;
 		wall = (GameObject)Instantiate (wallPrefab, start.transform.position, Quaternion.identity);
 	}
 
+	// Set the end of the wall
 	void setEnd(){
 		end.transform.position = endPos;
 	}
 
+	// Adjust the wall between the two columns
 	void adjustWall(){
 		start.transform.LookAt (end.transform.position);
 		end.transform.LookAt (start.transform.position);
