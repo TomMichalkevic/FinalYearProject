@@ -13,18 +13,14 @@ public class GnomeManager : MonoBehaviour {
 	public GameObject gnomeTwo;
 	public GameObject gnomeThree;
 	public GameObject gnomeFour;
-//	public GameObject gnomeFive;
-//	public GameObject gnomeSix;
-//	public GameObject gnomeSeven;
+
 
 	//Locations of gnomes
 	public Vector3 gnomeOneLoc;
 	public Vector3 gnomeTwoLoc;
 	public Vector3 gnomeThreeLoc;
 	public Vector3 gnomeFourLoc;
-	public Vector3 gnomeFiveLoc;
-	public Vector3 gnomeSixLoc;
-	public Vector3 gnomeSevenLoc;
+
 
 	//Variabled for dialogue text items
 	private string currentPhrase;
@@ -55,17 +51,12 @@ public class GnomeManager : MonoBehaviour {
 		gnomeTwoLoc = gnomeTwo.transform.position;
 		gnomeThreeLoc = gnomeThree.transform.position;
 		gnomeFourLoc = gnomeFour.transform.position;
-//		gnomeFiveLoc = gnomeFive.transform.position;
-//		gnomeSixLoc = gnomeSix.transform.position;
-//		gnomeSevenLoc = gnomeSeven.transform.position;
 
 		//Disable visibility of the gnomes
 		gnomeTwo.SetActive (false);
 		gnomeThree.SetActive (false);
 		gnomeFour.SetActive (false);
-//		gnomeFive.SetActive (false);
-//		gnomeSix.SetActive (false);
-//		gnomeSeven.SetActive (false);
+
 
 		//Initialisation of other vars
 		player = GameObject.FindGameObjectWithTag("Player").transform;
@@ -87,12 +78,7 @@ public class GnomeManager : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		
-		if (Input.GetKeyDown (KeyCode.Q) && (Vector3.Distance(player.position, currentGnome.transform.position)<10.0f)) {
-			InitiateDialogue ();
-			currentVisible++;
 
-		}
 		ChangeVisibility ();
 		changeGnome();
 		RotateGnomeToPlayer ();
@@ -104,8 +90,20 @@ public class GnomeManager : MonoBehaviour {
 		} else {
 			Time.timeScale = 1;
 			body.GetComponent<FirstPersonController> ().enabled = true;
-			LoadGnomeDialogueFile ();
 		}
+
+		if (Input.GetKeyDown (KeyCode.Q) && (Vector3.Distance(player.position, currentGnome.transform.position)<10.0f)) {
+			currentPhraseNum = 1;
+			InitiateDialogue ();
+			currentVisible++;
+
+		}
+
+		if (currentVisible == 5 && dialogueBox.dialogueBoxObject.activeSelf == false) {
+			Application.Quit ();
+			Debug.Log ("Trigger visited");
+		}
+
 	}
 
 	public void InitiateDialogue(){
@@ -123,6 +121,7 @@ public class GnomeManager : MonoBehaviour {
 			SetCurrentPhrasesAnswers ();
 			InitiateDialogue ();
 		} else {
+			LoadGnomeDialogueFile ();
 			dialogueBox.ClosePanel ();
 			currentPhraseNum = 1;
 			nextPhraseNum = 1;
@@ -139,6 +138,7 @@ public class GnomeManager : MonoBehaviour {
 			SetCurrentPhrasesAnswers ();
 			InitiateDialogue ();
 		} else {
+			LoadGnomeDialogueFile ();
 			dialogueBox.ClosePanel ();
 			currentPhraseNum = 1;
 			nextPhraseNum = 1;
@@ -153,64 +153,25 @@ public class GnomeManager : MonoBehaviour {
 			gnomeTwo.SetActive (false);
 			gnomeThree.SetActive (false);
 			gnomeFour.SetActive (false);
-//			gnomeFive.SetActive (false);
-//			gnomeSix.SetActive (false);
-//			gnomeSeven.SetActive (false);
 			break;
 		case 2:
 			gnomeOne.SetActive (true);
 			gnomeTwo.SetActive (true);
 			gnomeThree.SetActive (false);
 			gnomeFour.SetActive (false);
-//			gnomeFive.SetActive (false);
-//			gnomeSix.SetActive (false);
-//			gnomeSeven.SetActive (false);
 			break;
 		case 3:
 			gnomeOne.SetActive (true);
 			gnomeTwo.SetActive (true);
 			gnomeThree.SetActive (true);
 			gnomeFour.SetActive (false);
-//			gnomeFive.SetActive (false);
-//			gnomeSix.SetActive (false);
-//			gnomeSeven.SetActive (false);
 			break;
 		case 4:
-			gnomeOne.SetActive (false);
-			gnomeTwo.SetActive (false);
-			gnomeThree.SetActive (false);
+			gnomeOne.SetActive (true);
+			gnomeTwo.SetActive (true);
+			gnomeThree.SetActive (true);
 			gnomeFour.SetActive (true);
-//			gnomeFive.SetActive (false);
-//			gnomeSix.SetActive (false);
-//			gnomeSeven.SetActive (false);
 			break;
-//		case 5:
-//			gnomeOne.SetActive (true);
-//			gnomeTwo.SetActive (true);
-//			gnomeThree.SetActive (true);
-//			gnomeFour.SetActive (true);
-//			gnomeFive.SetActive (true);
-//			gnomeSix.SetActive (false);
-//			gnomeSeven.SetActive (false);
-//			break;
-//		case 6:
-//			gnomeOne.SetActive (true);
-//			gnomeTwo.SetActive (true);
-//			gnomeThree.SetActive (true);
-//			gnomeFour.SetActive (true);
-//			gnomeFive.SetActive (true);
-//			gnomeSix.SetActive (true);
-//			gnomeSeven.SetActive (false);
-//			break;
-//		case 7:
-//			gnomeOne.SetActive (true);
-//			gnomeTwo.SetActive (true);
-//			gnomeThree.SetActive (true);
-//			gnomeFour.SetActive (true);
-//			gnomeFive.SetActive (true);
-//			gnomeSix.SetActive (true);
-//			gnomeSeven.SetActive (true);
-//			break;
 		}
 	}
 
@@ -228,15 +189,6 @@ public class GnomeManager : MonoBehaviour {
 		case 4:
 			currentGnome = gnomeFour;
 			break;
-//		case 5:
-//			currentGnome = gnomeFive;
-//			break;
-//		case 6:
-//			currentGnome = gnomeSix;
-//			break;
-//		case 7:
-//			currentGnome = gnomeSeven;
-//			break;
 		}
 	}
 
@@ -254,15 +206,6 @@ public class GnomeManager : MonoBehaviour {
 		case 4:
 			currentDialogueLoaded = helper.ReadNPCDialogueInXML ("npc4.xml");
 			break;
-//		case 5:
-//			currentDialogueLoaded = helper.ReadNPCDialogueInXML ("npc5.xml");
-//			break;
-//		case 6:
-//			currentDialogueLoaded = helper.ReadNPCDialogueInXML ("npc6.xml");
-//			break;
-//		case 7:
-//			currentDialogueLoaded = helper.ReadNPCDialogueInXML ("npc7.xml");
-//			break;
 		}
 	}
 
@@ -294,9 +237,6 @@ public class GnomeManager : MonoBehaviour {
 		gnomeTwo.transform.LookAt (player);
 		gnomeThree.transform.LookAt (player);
 		gnomeFour.transform.LookAt (player);
-//		gnomeFive.transform.LookAt (player);
-//		gnomeSix.transform.LookAt (player);
-//		gnomeSeven.transform.LookAt (player);
 	}
 
 }

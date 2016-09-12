@@ -60,10 +60,6 @@ public class PauseMenu : MonoBehaviour {
 	}
 
 	public void ExitToMenu(){
-		Time.timeScale = 1;
-		pauseMenu.enabled = false;
-		body.GetComponent<FirstPersonController> ().enabled = true;
-		SceneManager.UnloadScene (1);
-		SceneManager.LoadScene (0, LoadSceneMode.Single);
+		Application.Quit ();
 	}
 }
